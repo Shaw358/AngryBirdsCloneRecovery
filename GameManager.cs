@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 			GameObject currentBird = Object.Instantiate(birdPrefab, spawnLocation.position, spawnLocation.rotation);
 			slingShotLine.setCurrentBird(currentBird);
 			birdsFired++;
-			StartCoroutine(FuckJou());
+			StartCoroutine(WaitAndEnableLineRenderer());
 		}
 	}
 
@@ -62,10 +62,10 @@ public class GameManager : MonoBehaviour
 		timer = 0f;
 	}
 
-	private IEnumerator FuckJou()
+	private IEnumerator WaitAndEnableLineRenderer()
 	{
 		yield return new WaitForSeconds(0.1f);
-		slingShotLine.setLineRendererActive(active: true);
+		slingShotLine.setLineRendererActive(true);
 	}
 
 	public void ResetGame()
